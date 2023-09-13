@@ -497,7 +497,7 @@ menu() {
     echo -e " 4. 修改 Hysteria 2 配置"
     echo -e " 5. 显示 Hysteria 2 配置文件"
     echo " ------------------------------------------------------------"
-    echo -e " ${GREEN}0.${PLAIN} 退出脚本"
+    echo -e " 0. 退出脚本"
     echo ""
     read -rp "请输入选项 [0-5]: " menuInput
     case $menuInput in
