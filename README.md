@@ -19,3 +19,7 @@ bash <(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/MoeCl
 
 
 详细安装地址，可参考博客内容：https://blog.yab1n.link/
+
+
+感谢：
+Ptechgithub佬 https://github.com/Ptechgithub/hysteria-install
