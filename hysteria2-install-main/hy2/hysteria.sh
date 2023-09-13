@@ -487,7 +487,7 @@ showconf(){
 menu() {
     clear
     echo "#############################################################"
-    echo -e "#                  ${RED}Hysteria 2 一键安装脚本-纯净版${PLAIN}                  #"
+    echo -e "#                  ${GREEN}Hysteria 2 一键安装脚本-纯净版${PLAIN}            #"
     echo "#############################################################"
     echo ""
     echo -e " ${GREEN}1.${PLAIN} 安装 Hysteria 2"
