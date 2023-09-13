@@ -1,0 +1,104 @@
+{
+  "dns": {
+    "independent_cache": true,
+    "rules": [],
+    "servers": [
+      {
+        "address": "tcp://1.1.1.1",
+        "address_resolver": "dns-direct",
+        "strategy": "prefer_ipv4",
+        "tag": "dns-remote"
+      },
+      {
+        "address": "local",
+        "address_resolver": "dns-local",
+        "detour": "direct",
+        "strategy": "prefer_ipv4",
+        "tag": "dns-direct"
+      },
+      {
+        "address": "local",
+        "detour": "direct",
+        "tag": "dns-local"
+      },
+      {
+        "address": "rcode://success",
+        "tag": "dns-block"
+      }
+    ]
+  },
+  "inbounds": [
+    {
+      "auto_route": true,
+      "endpoint_independent_nat": true,
+      "inet4_address": "172.19.0.1/28",
+      "interface_name": "ipv4-tun",
+      "mtu": 1500,
+      "sniff": true,
+      "stack": "gvisor",
+      "strict_route": true,
+      "type": "tun"
+    }
+  ],
+  "log": {
+    "level": "panic"
+  },
+  "outbounds": [
+    {
+      "type": "hysteria2",
+      "down_mbps": 200,
+      "up_mbps": 200,
+      "obfs": {
+        "type": "salamander",
+        "password": "peyman95"
+      },
+      "server": "91.107.251.1",
+      "password": "peyman95",
+      "server_port": 2087,
+      "tls": {
+        "alpn": ["h3"],
+        "enabled": true,
+        "insecure": true,
+        "server_name": "www.bing.com"
+      }
+    },
+    {
+      "tag": "direct",
+      "type": "direct"
+    },
+    {
+      "tag": "bypass",
+      "type": "direct"
+    },
+    {
+      "tag": "block",
+      "type": "block"
+    },
+    {
+      "tag": "dns-out",
+      "type": "dns"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "outbound": "dns-out",
+        "port": [53]
+      },
+      {
+        "inbound": ["dns-in"],
+        "outbound": "dns-out"
+      },
+      {
+        "geosite": ["category-ads-all"],
+        "outbound": "block"
+      },
+      {
+        "ip_cidr": ["224.0.0.0/3", "ff00::/8"],
+        "outbound": "block",
+        "source_ip_cidr": ["224.0.0.0/3", "ff00::/8"]
+      }
+    ]
+  }
+}
