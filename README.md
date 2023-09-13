@@ -16,3 +16,6 @@ bash <(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/MoeCl
 -P 为密码
 -port 为服务器端口
 请自行设定
+
+
+详细安装地址，可参考博客内容：https://blog.yab1n.link/
