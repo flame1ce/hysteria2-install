@@ -296,7 +296,7 @@ quic:
 fastOpen: true
 
 socks5:
-  listen: 127.0.0.1:5678
+  listen: 127.0.0.1:5080
 
 transport:
   udp:
@@ -317,7 +317,7 @@ EOF
     "maxConnReceiveWindow": 33554432
   },
   "socks5": {
-    "listen": "127.0.0.1:5678"
+    "listen": "127.0.0.1:5080"
   },
   "transport": {
     "udp": {
