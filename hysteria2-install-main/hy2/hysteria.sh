@@ -881,7 +881,7 @@ update_v2ray(){
         fi
     else
         red "已取消更新 V2Ray 操作！"
-    end
+    fi  # 这里应该使用 fi 来结束 if 语句
 }
 
 # 更新脚本
@@ -896,7 +896,7 @@ update_script(){
         green "脚本已成功更新，请重新运行脚本！"
         exit 0
     else
-        red "已取消更新脚本操作！"
+        # 其他操作
     fi
 }
 
